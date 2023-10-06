@@ -49,6 +49,13 @@ class _PerguntaAppState extends State<PerguntaApp> {
     }
   }
 
+  void _jogarNovamente() {
+    setState(() {
+      _pontuacaoTotal = 0;
+      _nextQuestion = 0;
+    });
+  }
+
   bool get temPerguntaSelecionada {
     return _nextQuestion < _perguntas.length;
   }
@@ -66,7 +73,8 @@ class _PerguntaAppState extends State<PerguntaApp> {
                 nextQuestion: _nextQuestion,
                 responder: _responder,
               )
-            : Resultado(pontuacao: _pontuacaoTotal),
+            : Resultado(
+                pontuacao: _pontuacaoTotal, jogarNovamente: _jogarNovamente),
       ),
     );
   }
