@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:projeto_pergunta/questao.dart';
 import 'package:projeto_pergunta/questionario.dart';
-import 'package:projeto_pergunta/resposta.dart';
 import 'package:projeto_pergunta/resultado.dart';
 
 main() {
@@ -10,6 +8,7 @@ main() {
 
 class _PerguntaAppState extends State<PerguntaApp> {
   var _nextQuestion = 0;
+  var _pontuacaoTotal = 0;
   final List<Map<String, Object>> _perguntas = [
     {
       'question': 'Qual é a sua cor favorita?',
@@ -76,10 +75,12 @@ class _PerguntaAppState extends State<PerguntaApp> {
     },
   ];
 
-  void _responder() {
+  void _responder(int pontuacao) {
     if (temPerguntaSelecionada) {
-      _nextQuestion++;
-      setState(() {});
+      setState(() {
+        _nextQuestion++;
+        _pontuacaoTotal += pontuacao;
+      });
     }
   }
 
@@ -89,10 +90,6 @@ class _PerguntaAppState extends State<PerguntaApp> {
 
   @override
   Widget build(BuildContext context) {
-    final List<Map<String, Object>> respostas = temPerguntaSelecionada
-        ? _perguntas[_nextQuestion]['answer'] as List<Map<String, Object>>
-        : [];
-
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
