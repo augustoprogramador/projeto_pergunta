@@ -14,28 +14,64 @@ class _PerguntaAppState extends State<PerguntaApp> {
     {
       'question': 'Qual é a sua cor favorita?',
       'answer': [
-        'Azul',
-        'Vermelho',
-        'Preto',
-        'Verde',
+        {
+          'texto': 'Azul',
+          'pontuacao': 10,
+        },
+        {
+          'texto': 'Vermelho',
+          'pontuacao': 5,
+        },
+        {
+          'texto': 'Preto',
+          'pontuacao': 3,
+        },
+        {
+          'texto': 'Verde',
+          'pontuacao': 7,
+        },
       ]
     },
     {
       'question': 'Qual é o seu animal favorito?',
       'answer': [
-        'Gato',
-        'Cachorro',
-        'Papagaio',
-        'Peixe',
+        {
+          'texto': 'Gato',
+          'pontuacao': 5,
+        },
+        {
+          'texto': 'Cachorro',
+          'pontuacao': 3,
+        },
+        {
+          'texto': 'Papagaio',
+          'pontuacao': 7,
+        },
+        {
+          'texto': 'Peixe',
+          'pontuacao': 10,
+        }
       ]
     },
     {
       'question': 'Qual o seu instrutor favorito?',
       'answer': [
-        'José',
-        'Ana',
-        'Leo',
-        'João Ribeiro',
+        {
+          'texto': 'José',
+          'pontuacao': 5,
+        },
+        {
+          'texto': 'Ana',
+          'pontuacao': 3,
+        },
+        {
+          'texto': 'Leo',
+          'pontuacao': 7,
+        },
+        {
+          'texto': 'João Ribeiro',
+          'pontuacao': 10,
+        }
       ]
     },
   ];
@@ -53,8 +89,8 @@ class _PerguntaAppState extends State<PerguntaApp> {
 
   @override
   Widget build(BuildContext context) {
-    final List<String> respostas = temPerguntaSelecionada
-        ? _perguntas[_nextQuestion].cast()['answer']
+    final List<Map<String, Object>> respostas = temPerguntaSelecionada
+        ? _perguntas[_nextQuestion]['answer'] as List<Map<String, Object>>
         : [];
 
     return MaterialApp(
