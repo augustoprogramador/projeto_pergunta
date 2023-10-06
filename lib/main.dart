@@ -13,64 +13,28 @@ class _PerguntaAppState extends State<PerguntaApp> {
     {
       'question': 'Qual é a sua cor favorita?',
       'answer': [
-        {
-          'texto': 'Azul',
-          'pontuacao': 10,
-        },
-        {
-          'texto': 'Vermelho',
-          'pontuacao': 5,
-        },
-        {
-          'texto': 'Preto',
-          'pontuacao': 3,
-        },
-        {
-          'texto': 'Verde',
-          'pontuacao': 7,
-        },
+        {'texto': 'Azul', 'pontuacao': 10},
+        {'texto': 'Vermelho', 'pontuacao': 5},
+        {'texto': 'Preto', 'pontuacao': 3},
+        {'texto': 'Verde', 'pontuacao': 7}
       ]
     },
     {
       'question': 'Qual é o seu animal favorito?',
       'answer': [
-        {
-          'texto': 'Gato',
-          'pontuacao': 5,
-        },
-        {
-          'texto': 'Cachorro',
-          'pontuacao': 3,
-        },
-        {
-          'texto': 'Papagaio',
-          'pontuacao': 7,
-        },
-        {
-          'texto': 'Peixe',
-          'pontuacao': 10,
-        }
+        {'texto': 'Gato', 'pontuacao': 5},
+        {'texto': 'Cachorro', 'pontuacao': 3},
+        {'texto': 'Papagaio', 'pontuacao': 7},
+        {'texto': 'Peixe', 'pontuacao': 1}
       ]
     },
     {
       'question': 'Qual o seu instrutor favorito?',
       'answer': [
-        {
-          'texto': 'José',
-          'pontuacao': 5,
-        },
-        {
-          'texto': 'Ana',
-          'pontuacao': 3,
-        },
-        {
-          'texto': 'Leo',
-          'pontuacao': 7,
-        },
-        {
-          'texto': 'João Ribeiro',
-          'pontuacao': 10,
-        }
+        {'texto': 'José', 'pontuacao': 5},
+        {'texto': 'Ana', 'pontuacao': 3},
+        {'texto': 'Leo', 'pontuacao': 7},
+        {'texto': 'João Ribeiro', 'pontuacao': 2}
       ]
     },
   ];
@@ -80,6 +44,7 @@ class _PerguntaAppState extends State<PerguntaApp> {
       setState(() {
         _nextQuestion++;
         _pontuacaoTotal += pontuacao;
+        print(_pontuacaoTotal);
       });
     }
   }
@@ -101,7 +66,7 @@ class _PerguntaAppState extends State<PerguntaApp> {
                 nextQuestion: _nextQuestion,
                 responder: _responder,
               )
-            : const Resultado(),
+            : Resultado(pontuacao: _pontuacaoTotal),
       ),
     );
   }
